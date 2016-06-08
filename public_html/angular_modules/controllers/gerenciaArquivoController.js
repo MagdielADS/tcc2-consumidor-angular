@@ -5,16 +5,7 @@
  */
 
 angular.module("tcc-frontend.controllers.GerenciaArquivoController", []).controller("GerenciaArquivoController",function(GerenciaArquivoService, $scope){
-    $scope.arquivo = {
-        nomeDoArquivo : 'testando',
-        extensao : 'CSV3',
-        caractereDeTabulacao : ',',
-        pathArquivo : '/arquivos/ubs3.csv',
-        colunaDeBusca : 'nome3_ubs',
-        latitude : 'lat3_ubs',
-        longitude : 'lon3_ubs',
-        referenciaDeLugar : 'cid3_ubs'
-    };
+    $scope.arquivo = {};
     
     $scope.buscarArquivos = function(){
         GerenciaArquivoService.buscarArquivos()
@@ -23,7 +14,7 @@ angular.module("tcc-frontend.controllers.GerenciaArquivoController", []).control
             }).error(function(response){
                 console.log(response);
             });
-    };
+    }
     
     $scope.salvarArquivo = function(){
         GerenciaArquivoService.salvarArquivo($scope.arquivo)
@@ -32,5 +23,16 @@ angular.module("tcc-frontend.controllers.GerenciaArquivoController", []).control
             }).error(function(response){
                 console.log(response);
             });
-    };
+    }
+    
+    $scope.buscarColunasArquivo = function(){
+        $scope.arquivo.pathArquivo = 'C:10Users10Magdiel10Desktop10Magdiel10tcc10ubs-menor.csv';
+        $scope.arquivo.caractereTabulacao = ',';
+        GerenciaArquivoService.buscarColunasArquivo($scope.arquivo.pathArquivo, $scope.arquivo.caractereTabulacao)
+                .success(function(response){
+                    console.log("Colunas ", response);
+                }).error(function(response){
+                   console.log("ERRO ", response); 
+                });
+    } 
 });

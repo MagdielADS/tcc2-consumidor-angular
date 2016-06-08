@@ -8,7 +8,7 @@ and open the template in the editor.
 <html ng-app="tcc-frontend">
     
     <head>
-        <title>TODO supply a title</title>
+        <title>Gerenciamento de Arquivo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -16,6 +16,7 @@ and open the template in the editor.
         <div ng-controller="GerenciaArquivoController">
             <input type="button" ng-click="salvarArquivo()" value="Salvar"/>
             <input type="button" ng-click="buscarArquivos()" value="Listar"/>
+            <input type="button" ng-click="buscarColunasArquivo()" value="Colunas"/>
         </div>
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="angular_modules/app.js"></script>

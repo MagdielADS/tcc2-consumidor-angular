@@ -12,6 +12,14 @@ angular.module("tcc-frontend.services.GerenciaArquivoService", []).service("Gere
         },
         salvarArquivo : function(arquivo){
             return $http.post("http://localhost:8080/tcc-services/rest/georef/salvararquivo",arquivo);
+        },
+        buscarColunasArquivo : function(caminho, caractere){
+            var obj = {};
+            obj.params = {
+                caminho:caminho, 
+                caractere: caractere
+            };
+            return $http.get("http://localhost:8080/tcc-services/rest/georef/colunas",obj);
         }
     };
     return service;
